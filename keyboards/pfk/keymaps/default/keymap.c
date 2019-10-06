@@ -1,6 +1,6 @@
 #include QMK_KEYBOARD_H
 
-#define NUM_KEYS = 2;
+#define NUM_KEYS 10
 #define _BASE_LAYER 0
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -74,4 +74,4 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 extern uint8_t matrix_num_keys;
 
-void matrix_init_user(void) { matrix_num_keys = 2; }
+void matrix_init_user(void) { matrix_num_keys = NUM_KEYS; }

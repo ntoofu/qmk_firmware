@@ -9,8 +9,7 @@ static const uint16_t timeout = 30;
 static matrix_row_t raw_matrix[MATRIX_ROWS];  // raw values
 static matrix_row_t matrix[MATRIX_ROWS];      // debounced values
 
-extern uint8_t matrix_num_keys;
-uint8_t matrix_num_keys = MATRIX_ROWS * MATRIX_COLS;    // might be updated by matrix_init_user()
+extern uint8_t matrix_num_keys;     // must be initialized in `keymap.c`
 
 __attribute__((weak)) void matrix_init_quantum(void) { matrix_init_kb(); }
 __attribute__((weak)) void matrix_scan_quantum(void) { matrix_scan_kb(); }

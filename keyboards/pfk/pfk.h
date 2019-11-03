@@ -28,4 +28,4 @@
 #endif
 
 #define _LED1 F5       // A2 in Pro Micro
-#define _LED2 F4       // A2 in Pro Micro
+#define _LED2 F4       // A3 in Pro Micro

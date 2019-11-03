@@ -9,3 +9,4 @@
 
 #define MATRIX_ROWS 8
 #define MATRIX_COLS 8
+#define DEBOUNCE 5

@@ -29,19 +29,16 @@ void matrix_init(void) {
         raw_matrix[i] = 0;
         matrix[i]     = 0;
     }
+    uint8_t data_led_on = 0xb0;
+    uint8_t data_led_off = 0x00;
     for (uint8_t key_id = 0; key_id < matrix_num_keys; key_id++) {
-        uint8_t data = 0xb0;
         uint8_t addr = key_id + i2c_min_addr;
-        i2c_status_t i2c_status = i2c_transmit(addr << 1, &data, 1, timeout);
+        i2c_status_t i2c_status = i2c_transmit(addr << 1, &data_led_on, 1, timeout);
         if (i2c_status != I2C_STATUS_SUCCESS) {
             handle_i2c_error(key_id);
         }
-    }
-    _delay_ms(500);
-    for (uint8_t key_id = 0; key_id < matrix_num_keys; key_id++) {
-        uint8_t data = 0x00;
-        uint8_t addr = key_id + i2c_min_addr;
-        i2c_status_t i2c_status = i2c_transmit(addr << 1, &data, 1, timeout);
+        _delay_ms(50);
+        i2c_status = i2c_transmit(addr << 1, &data_led_off, 1, timeout);
         if (i2c_status != I2C_STATUS_SUCCESS) {
             handle_i2c_error(key_id);
         }
